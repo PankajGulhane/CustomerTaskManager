@@ -1,0 +1,21 @@
+<h3>Find By Priority</h3>
+<div style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="priority">Priority</label>
+      <input type="text" class="form-control" id="priority" required [(ngModel)]="priority" name="priority">
+    </div>
+
+    <div class="btn-group">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </form>
+</div>
+<ul>
+  <li *ngFor="let customer of customers">
+    <h4><b> ID: </b> {{customer.id}}   </h4>
+    <h4> <b> Task: </b> {{customer.name}} </h4>
+    <h4><b>Parent Task:  </b>{{customer.parent}}  </h4>
+    <h4> <b>Priority:  </b>{{customer.priority}} </h4>
+  </li>
+</ul>

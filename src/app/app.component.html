@@ -1,0 +1,10 @@
+<div style="padding: 20px;">
+  <h1 style="color: blue">{{title}}</h1>
+  <h3>{{description}}</h3>
+  <nav>
+    <a routerLink="viewTask" class="btn btn-primary active" style="margin-left:5px;" role="button" routerLinkActive="active">View Task</a>
+    <a routerLink="addTask" class="btn btn-primary active" style="margin-left:5px;" role="button" routerLinkActive="active">Add Task</a>
+    <a routerLink="findbyPriority" class="btn btn-primary active" style="margin-left:5px;" role="button" routerLinkActive="active">Search By Priority</a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

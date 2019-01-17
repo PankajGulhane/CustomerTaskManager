@@ -1,0 +1,49 @@
+<div *ngIf="customer">
+  <div>
+    <label >Task: </label> {{customer.name}}
+   </div>
+  <div>
+    <label>Parent Task: </label> {{customer.parent}}
+  </div>
+  <div>
+    <label>Priority: </label> {{customer.priority}}
+  </div>
+  <div>
+    <label>Start Date: </label> {{customer.startDate}}
+  </div>
+  <div>
+    <label>End Date: </label> {{customer.dueDate}}
+  </div>
+  <div>
+    <label>Active: </label> {{customer.active}}
+  </div>
+  
+  <form  [hidden]="enableEdit">
+      <label for="name">Task</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="customer.name" name="name">
+      
+      <label for="parent">Parent Task</label>
+      <input type="text" class="form-control" id="parent" required [(ngModel)]="customer.parent" name="parent">
+      
+       <label for="priority">Priority</label>
+      <input type="number" class="form-control" id="priority" required [(ngModel)]="customer.priority" name="priority">
+      
+      <label for="startDate">Start Date</label>
+      <input required [(ngModel)]="customer.startDate" class="form-control"  type="date" name="startDate" id="startDate"/>
+      
+       <label for="dueDate">Due Date</label>
+      <input required [(ngModel)]="customer.dueDate" class="form-control"  type="date" name="dueDate" id="dueDate"/>
+    </form>
+
+  <button class="button is-small btn-primary" *ngIf='customer.active' (click)='updateActive(false)'>End Task</button>
+
+  <button class="button is-small btn-primary" *ngIf='!customer.active' (click)='updateActive(true)'>Active Task</button>
+  
+  <button class="button is-small btn-primary" style="margin-left:10px;" *ngIf='customer.active' (click)="enableEdit = false">Edit Task</button>
+  
+  <button class="button is-small btn-primary" style="margin-left:10px;" *ngIf='customer.active' (click)='[updateCustomer(true),enableEdit = true]'>Save</button>
+  
+  <button class="button is-small btn-danger" style="margin-left:10px;" (click)='deleteCustomer()'>Delete</button>
+
+  <hr/>
+</div>
